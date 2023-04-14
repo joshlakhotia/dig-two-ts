@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { UserAuth } from '../context/AuthContext'
+import { useUserAuth } from '../context/AuthContext'
 
 const Signup = () => {
-  const { createUser } = UserAuth();
+  const { createUser } = useUserAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confPass, setConfPass] = useState('');
-  const [error, setError] = useState('');
+  const [error, setError] = useState<any>('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (password !== confPass) {
@@ -21,10 +22,10 @@ const Signup = () => {
     try {
       setError('');
       setLoading(true);
-      await createUser(email, password);
+      await createUser?.(email, password);
       navigate('/account');
-    } catch (e) {
-      setError(e.message);
+    } catch (error) {
+      setError(error);
     }
 
   }
