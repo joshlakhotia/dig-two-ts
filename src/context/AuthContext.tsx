@@ -8,7 +8,7 @@ import {
   UserCredential
 } from 'firebase/auth';
 import firebase from 'firebase/app';
-import { auth } from '../firebase';
+import { auth } from '../adapters/firebase';
 
 type AuthContextProviderProps = {
   children: React.ReactNode

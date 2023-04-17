@@ -1,11 +1,11 @@
 import React from "react"
 import { Routes, Route } from 'react-router-dom'
 import { AuthContextProvider } from './context/AuthContext';
-import Home from './components/Home'
-import SignUp from './components/SignUp'
-import SignIn from './components/SignIn'
-import Account from './components/Account'
-import Forecast from './components/Forecast'
+import Home from './pages/Home'
+import SignUp from './pages/SignUp'
+import SignIn from './pages/SignIn'
+import Account from './pages/Account'
+import Forecast from './pages/Forecast'
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
